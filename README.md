@@ -56,9 +56,7 @@ _Does not rely on any global dependencies._
 - [How to extend?](#how-to-extend)
 - [Running tests](#running-tests)
 - [Contributing](#contributing)
-- [Examples](#examples)
 - [Directory Structure](#directory-structure)
-- [Contributors](#contributors)
 - [Change Log](#change-log)
 - [License](#license)
 
