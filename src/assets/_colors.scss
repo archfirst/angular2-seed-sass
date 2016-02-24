@@ -1,0 +1,39 @@
+/* ----- Based on Angular Material 2 ----- */
+
+// Palette
+$app-blue: (
+  50: #dcefff,
+  100: #aad1f9,
+  200: #7bb8f5,
+  300: #4c9ef1,
+  400: #1c85ed,
+  500: #106cc8,
+  600: #0159a2,
+  700: #025ee9,
+  800: #014ab6,
+  900: #013583,
+  A100: #ff8a80,
+  A200: #ff5252,
+  A400: #ff1744,
+  A700: #d50000,
+);
+
+// Returns a color from a palette/color-map.
+// For example: md-color($app-blue, 500) will return #106cc8
+//
+// $color-map: a map of {key: color}.
+// $hue-key: key used to lookup the color in $colorMap. Defaults to 'default'
+//     If $hue-key is a number between 0 and 1, it will be treated as $opacity.
+// $opacity: the opacity to apply to the color.
+@function md-color($color-map, $hue-key: default, $opacity: 1) {
+  // If hueKey is a number between zero and one, then it actually contains an
+  // opacity value, so recall this function with the default hue and that given opacity.
+  @if type-of($hue-key) == number and $hue-key >= 0 and $hue-key <= 1 {
+    @return md-color($color-map, default, $hue-key)
+  }
+
+  $color: map-get($color-map, $hue-key);
+  $opacity: if(opacity($color) < 1, opacity($color), $opacity);
+
+  @return rgba($color, $opacity);
+}

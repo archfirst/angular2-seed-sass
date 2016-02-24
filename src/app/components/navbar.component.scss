@@ -1,3 +1,5 @@
+@import 'colors';
+
 :host {
   border-color: #E1E1E1;
   border-style: solid;
@@ -18,5 +20,5 @@ nav a {
 }
 
 nav a.router-link-active {
-  color: #106CC8;
+  color: md-color($app-blue, 500);
 }

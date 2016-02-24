@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'colors';
+
 /* Reset */
 html, body, div {
   border: 0;
@@ -10,8 +13,8 @@ html, body, div {
 
 /* Set up a default font and some padding to provide breathing room */
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 16px;
+  font-family: $md-font-family;
+  font-size: $md-body-font-size-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,7 +38,7 @@ li {
 }
 
 input {
-  border: 1px solid #106CC8;
+  border: 1px solid md-color($app-blue, 500);
   font-size: 14px;
   height: 40px;
   outline: none;
@@ -43,7 +46,7 @@ input {
 }
 
 button {
-  background-color: #106CC8;
+  background-color: md-color($app-blue, 500);
   border-style: none;
   color: rgba(255,255,255,0.87);
   cursor: pointer;
@@ -55,5 +58,5 @@ button {
 }
 
 button:hover {
-  background-color: #28739E;
+  background-color: md-color($app-blue, 400);
 }
