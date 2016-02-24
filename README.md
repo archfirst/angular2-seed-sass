@@ -1,10 +1,10 @@
 # Introduction
 
-A seed project for Angular 2 apps using Sass and Material. Derived from [mgechev/angular2-seed](https://github.com/mgechev/angular2-seed).
+A seed project for Angular 2 apps using Sass. Derived from [mgechev/angular2-seed](https://github.com/mgechev/angular2-seed).
 
 It is something similar to the Angular Quick Start but does the entire build with gulp.
 
-`angular2-seed-material` provides the following features:
+`angular2-seed-sass` provides the following features:
 
 - Ready to go, statically typed build system using gulp for working with TypeScript.
 - Production and development builds.
@@ -30,8 +30,8 @@ In order to start the seed use:
 
 
 ```bash
-git clone --depth 1 https://github.com/archfirst/angular2-seed-material.git
-cd angular2-seed-material
+git clone --depth 1 https://github.com/archfirst/angular2-seed-sass.git
+cd angular2-seed-sass
 # install the project's dependencies
 npm install
 # watches your files and uses livereload by default
