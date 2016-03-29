@@ -1,5 +1,5 @@
 {
-  "rulesDirectory": ["node_modules/ng2lint/dist/src"],
+  "rulesDirectory": ["node_modules/codelyzer/dist/src"],
   "rules": {
     "class-name": true,
     "curly": false,
@@ -38,6 +38,9 @@
     "component-selector-type": [true, "element"],
     "host-parameter-decorator": true,
     "input-parameter-decorator": true,
-    "output-parameter-decorator": true
+    "output-parameter-decorator": true,
+    "attribute-parameter-decorator": true,
+    "input-property-directive": true,
+    "output-property-directive": true
   }
 }

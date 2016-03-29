@@ -2,6 +2,9 @@
 // Generated on Wed Jul 15 2015 09:44:02 GMT+0200 (Romance Daylight Time)
 'use strict';
 
+
+var argv = require('yargs').argv;
+
 module.exports = function(config) {
   config.set({
 
@@ -16,7 +19,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/zone.js/dist/zone-microtask.js',
+      'node_modules/zone.js/dist/zone.js',
       'node_modules/zone.js/dist/long-stack-trace-zone.js',
       'node_modules/zone.js/dist/jasmine-patch.js',
       'node_modules/es6-module-loader/dist/es6-module-loader.js',
@@ -24,6 +27,8 @@ module.exports = function(config) {
       'node_modules/traceur/bin/traceur.js',
       'node_modules/systemjs/dist/system.src.js',
       'node_modules/reflect-metadata/Reflect.js',
+      // beta.7 IE 11 polyfills from https://github.com/angular/angular/issues/7144
+      'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
 
       { pattern: 'node_modules/angular2/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
@@ -45,8 +50,7 @@ module.exports = function(config) {
     preprocessors: {
       'dist/**/!(*spec).js': ['coverage']
     },
-
-
+      
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -96,7 +100,12 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    // Passing command line arguments to tests
+    client: {
+      files: argv.files
+    }
   });
 
   if (process.env.APPVEYOR) {
