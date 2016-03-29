@@ -8,6 +8,8 @@ import * as colorguard from 'colorguard';
 import {join} from 'path';
 import {APP_SRC, APP_ASSETS, BROWSER_LIST, ENV} from '../../config';
 const plugins = <any>gulpLoadPlugins();
+var scsslint = require('gulp-scss-lint');
+
 
 const isProd = ENV === 'prod';
 
@@ -22,21 +24,21 @@ const processors = [
 
 function lintComponentCss() {
   return gulp.src([
-      join(APP_SRC, '**', '*.css'),
-      '!' + join(APP_SRC, 'assets', '**', '*.css')
+      join(APP_SRC, '**', '*.scss'),
+      '!' + join(APP_SRC, 'assets', '**', '*.scss')
     ])
-    .pipe(isProd ? plugins.cached('css-lint') : plugins.util.noop())
-    .pipe(plugins.postcss(processors));
+    .pipe(isProd ? plugins.cached('scss-lint') : plugins.util.noop())
+    .pipe(scsslint(processors));
 }
 
 function lintExternalCss() {
   return gulp.src(getExternalCss().map(r => r.src))
-    .pipe(isProd ? plugins.cached('css-lint') : plugins.util.noop())
-    .pipe(plugins.postcss(processors));
+    .pipe(isProd ? plugins.cached('scss-lint') : plugins.util.noop())
+    .pipe(scsslint(processors));
 }
 
 function getExternalCss() {
-  return APP_ASSETS.filter(d => /\.css$/.test(d.src) && !d.vendor);
+  return APP_ASSETS.filter(d => /\.scss$/.test(d.src) && !d.vendor);
 }
 
 

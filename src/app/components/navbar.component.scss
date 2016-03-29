@@ -1,7 +1,7 @@
 @import '../../assets/colors';
 
 :host {
-  border-color: #E1E1E1;
+  border-color: $app-border-color;
   border-style: solid;
   border-width: 0 0 1px;
   display: block;
@@ -10,7 +10,7 @@
 }
 
 nav a {
-  color: #8F8F8F;
+  color: $app-link-text-color;
   font-size: 14px;
   font-weight: 500;
   line-height: 48px;
@@ -19,6 +19,6 @@ nav a {
   vertical-align: middle;
 }
 
-nav a.router-link-active {
+nav .router-link-active {
   color: md-color($app-blue, 500);
 }
