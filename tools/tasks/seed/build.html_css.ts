@@ -29,13 +29,11 @@ function prepareTemplates() {
 }
 
 function processComponentCss() {
-  return gulp.src([
-      join(APP_SRC, '**', '*.css'),
-      '!' + join(APP_SRC, 'assets', '**', '*.css')
-    ])
+  return gulp.src(join(TMP_DIR, '**', '*.css'))
     .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop())
     .pipe(plugins.postcss(processors))
-    .pipe(gulp.dest(isProd ? TMP_DIR: APP_DEST));
+    .pipe(isProd ? plugins.concat(CSS_PROD_BUNDLE) : plugins.util.noop())
+    .pipe(gulp.dest(isProd ? CSS_DEST: APP_DEST));
 }
 
 function processExternalCss() {
