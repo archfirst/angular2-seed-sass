@@ -28,6 +28,7 @@ function prepareTemplates() {
     .pipe(gulp.dest(TMP_DIR));
 }
 
+
 function processCss() {
   return merge(processComponentCss(), processExternalCss())
     .pipe(plugins.postcss(processors))
@@ -38,7 +39,6 @@ function processCss() {
 function processComponentCss() {
   return gulp.src(join(TMP_DIR, '**', '*.css'))
     .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop());
-
 }
 
 function processExternalCss() {

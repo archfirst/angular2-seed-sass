@@ -2,7 +2,6 @@
 // Generated on Wed Jul 15 2015 09:44:02 GMT+0200 (Romance Daylight Time)
 'use strict';
 
-
 var argv = require('yargs').argv;
 
 module.exports = function(config) {
@@ -50,7 +49,7 @@ module.exports = function(config) {
     preprocessors: {
       'dist/**/!(*spec).js': ['coverage']
     },
-      
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
