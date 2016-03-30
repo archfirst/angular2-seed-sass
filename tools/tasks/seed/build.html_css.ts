@@ -28,20 +28,22 @@ function prepareTemplates() {
     .pipe(gulp.dest(TMP_DIR));
 }
 
-function processComponentCss() {
-  return gulp.src(join(TMP_DIR, '**', '*.css'))
-    .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop())
+function processCss() {
+  return merge(processComponentCss(), processExternalCss())
     .pipe(plugins.postcss(processors))
     .pipe(isProd ? plugins.concat(CSS_PROD_BUNDLE) : plugins.util.noop())
-    .pipe(gulp.dest(isProd ? CSS_DEST: APP_DEST));
+    .pipe(gulp.dest(isProd ? CSS_DEST : APP_DEST));
+}
+
+function processComponentCss() {
+  return gulp.src(join(TMP_DIR, '**', '*.css'))
+    .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop());
+
 }
 
 function processExternalCss() {
   return gulp.src(getExternalCss().map(r => r.src))
-    .pipe(isProd ? plugins.cached('process-external-css') : plugins.util.noop())
-    .pipe(plugins.postcss(processors))
-    .pipe(isProd ? plugins.concat(CSS_PROD_BUNDLE) : plugins.util.noop())
-    .pipe(gulp.dest(CSS_DEST));
+    .pipe(isProd ? plugins.cached('process-external-css') : plugins.util.noop());
 }
 
 function getExternalCss() {
@@ -49,4 +51,4 @@ function getExternalCss() {
 }
 
 
-export = () => merge(processComponentCss(), prepareTemplates(), processExternalCss());
+export = () => merge(processCss(), prepareTemplates());
