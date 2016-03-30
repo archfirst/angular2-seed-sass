@@ -10,9 +10,10 @@ It is something similar to the Angular Quick Start but does the entire build wit
 - Production and development builds.
 - Sample unit tests with Jasmine and Karma including code coverage via [istanbul](https://gotwarlost.github.io/istanbul/).
 - End-to-end tests with Protractor.
-- Development server with live reload.
+- Development server with Livereload.
 - Following the [best practices for your application’s structure](https://github.com/mgechev/angular2-style-guide).
 - Manager of your type definitions using [typings](https://github.com/typings/typings).
+- Has autoprefixer and css-lint support.
 - Basic Service Worker, which implements "Cache then network strategy".
 - Sass-enabled styling.
 
@@ -32,10 +33,6 @@ You must also have Ruby and [scss-lint](https://github.com/brigade/scss-lint) in
 sudo gem install -n /usr/local/bin scss_lint
 ```
 
-In order to start the seed use:
-
-
-```bash
 git clone --depth 1 https://github.com/archfirst/angular2-seed-sass.git
 cd angular2-seed-sass
 # install the project's dependencies
@@ -117,13 +114,12 @@ You can learn more about [Protractor Interactive Mode here](https://github.com/a
 
 # Contributing
 
-Please see the [CONTRIBUTING](https://github.com/mgechev/angular2-seed/blob/master/CONTRIBUTING.md) file for guidelines.
+Please see the [CONTRIBUTING](https://github.com/mgechev/angular2-seed/blob/master/.github/CONTRIBUTING.md) file for guidelines.
 
 # Directory Structure
 
 ```
 .
-├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
 ├── gulpfile.ts                <- configuration of the gulp tasks
