@@ -1,4 +1,4 @@
-import {DEV_DEST} from '../../config';
+import {DEV_DEST, TMP_DIR} from '../../config';
 import {clean} from '../../utils';
 
-export = clean(DEV_DEST)
+export = clean([DEV_DEST, TMP_DIR])
