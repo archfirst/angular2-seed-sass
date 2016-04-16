@@ -33,6 +33,9 @@ You must also have Ruby and [scss-lint](https://github.com/brigade/scss-lint) in
 sudo gem install -n /usr/local/bin scss_lint
 ```
 
+In order to start using seed:
+
+```bash
 git clone --depth 1 https://github.com/archfirst/angular2-seed-sass.git
 cd angular2-seed-sass
 # install the project's dependencies
