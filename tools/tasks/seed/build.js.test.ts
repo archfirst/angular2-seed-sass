@@ -2,7 +2,7 @@ import * as gulp from 'gulp';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
 import {join} from 'path';
 import {BOOTSTRAP_MODULE, APP_SRC, APP_DEST, TOOLS_DIR} from '../../config';
-import {makeTsProject} from '../../utils';
+import {templateLocals, makeTsProject} from '../../utils';
 const plugins = <any>gulpLoadPlugins();
 
 export = () => {
@@ -17,10 +17,10 @@ export = () => {
   let result = gulp.src(src)
     .pipe(plugins.plumber())
     .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.inlineNg2Template({base: APP_SRC, useRelativePaths: true}))
     .pipe(plugins.typescript(tsProject));
 
   return result.js
     .pipe(plugins.sourcemaps.write())
+    .pipe(plugins.template(templateLocals()))
     .pipe(gulp.dest(APP_DEST));
 }
