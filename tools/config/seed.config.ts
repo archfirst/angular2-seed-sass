@@ -1,5 +1,5 @@
 import {argv} from 'yargs';
-import {normalize, join} from 'path';
+import {join} from 'path';
 import {InjectableDependency, Environments} from './seed.config.interfaces';
 
 export const ENVIRONMENTS: Environments = {
@@ -10,7 +10,7 @@ export const ENVIRONMENTS: Environments = {
 
 export class SeedConfig {
   PORT                 = argv['port']                        || 5555;
-  PROJECT_ROOT         = normalize(join(__dirname, '..'));
+  PROJECT_ROOT         = join(__dirname, '../..');
   ENV                  = getEnvironment();
   DEBUG                = argv['debug']                       || false;
   DOCS_PORT            = argv['docs-port']                   || 4003;
@@ -50,10 +50,10 @@ export class SeedConfig {
   CODELYZER_RULES      = customRules();
 
   NPM_DEPENDENCIES: InjectableDependency[] = [
-    { src: 'systemjs/dist/system-polyfills.src.js', inject: 'shims' },
-    { src: 'reflect-metadata/Reflect.js', inject: 'shims' },
-    { src: 'es6-shim/es6-shim.js', inject: 'shims' },
-    { src: 'systemjs/dist/system.src.js', inject: 'shims' },
+    { src: 'systemjs/dist/system-polyfills.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
+    { src: 'reflect-metadata/Reflect.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
+    { src: 'es6-shim/es6-shim.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
+    { src: 'systemjs/dist/system.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'angular2/bundles/angular2-polyfills.js', inject: 'shims' },
     { src: 'rxjs/bundles/Rx.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'angular2/bundles/angular2.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
@@ -63,7 +63,7 @@ export class SeedConfig {
 
   // Declare local files that needs to be injected
   APP_ASSETS: InjectableDependency[] = [
-    { src: `${this.ASSETS_SRC}/main.css`, inject: true, vendor: false }
+    { src: `${this.CSS_DEST}/main.css`, inject: true, vendor: false }
   ];
 
 

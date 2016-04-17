@@ -12,10 +12,10 @@ loadTasks(PROJECT_TASKS_DIR);
 gulp.task('build.dev', (done: any) =>
   runSequence('clean.dev',
               'tslint',
-              'process.scss',
               'scss-lint',
               'build.assets.dev',
-              'build.html_css',
+              'build.html',
+              'build.scss',
               'build.js.dev',
               'build.index.dev',
               done));
@@ -32,8 +32,9 @@ gulp.task('build.dev.watch', (done: any) =>
 gulp.task('build.e2e', (done: any) =>
   runSequence('clean.dev',
               'tslint',
-              'process.scss',
               'build.assets.dev',
+              'build.html',
+              'build.scss',
               'build.js.e2e',
               'build.index.dev',
               done));
@@ -43,10 +44,10 @@ gulp.task('build.e2e', (done: any) =>
 gulp.task('build.prod', (done: any) =>
   runSequence('clean.prod',
               'tslint',
-              'process.scss',
               'scss-lint',
               'build.assets.prod',
-              'build.html_css',
+              'build.html',
+              'build.scss',
               'copy.js.prod',
               'build.js.prod',
               'build.bundles',
@@ -59,8 +60,9 @@ gulp.task('build.prod', (done: any) =>
 gulp.task('build.test', (done: any) =>
   runSequence('clean.dev',
               'tslint',
-              'process.scss',
               'build.assets.dev',
+              'build.html',
+              'build.scss',
               'build.js.test',
               'build.index.dev',
               done));
