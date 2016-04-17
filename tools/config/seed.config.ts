@@ -1,12 +1,11 @@
 import {argv} from 'yargs';
 import {join} from 'path';
-import {InjectableDependency, Environments} from './seed.config.interfaces';
+import {InjectableDependency, Environments, SassOptions} from './seed.config.interfaces';
 
 export const ENVIRONMENTS: Environments = {
   DEVELOPMENT: 'dev',
   PRODUCTION: 'prod'
 };
-
 
 export class SeedConfig {
   PORT                 = argv['port']                        || 5555;
@@ -48,6 +47,9 @@ export class SeedConfig {
   VERSION_NODE         = '4.0.0';
 
   CODELYZER_RULES      = customRules();
+
+  SASS_OPTIONS: SassOptions = {
+  };
 
   NPM_DEPENDENCIES: InjectableDependency[] = [
     { src: 'systemjs/dist/system-polyfills.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
