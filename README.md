@@ -6,6 +6,7 @@ It is something similar to the Angular Quick Start but does the entire build wit
 
 `angular2-seed-sass` provides the following features:
 
+- Allows you to painlessly update the seed tasks of your already existing project.
 - Ready to go, statically typed build system using gulp for working with TypeScript.
 - Production and development builds.
 - Sample unit tests with Jasmine and Karma including code coverage via [istanbul](https://gotwarlost.github.io/istanbul/).

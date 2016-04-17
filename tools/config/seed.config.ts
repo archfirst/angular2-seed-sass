@@ -122,6 +122,7 @@ export class SeedConfig {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
       'angular2/*': `${this.APP_BASE}angular2/*`,
       'rxjs/*': `${this.APP_BASE}rxjs/*`,
+      'app/*': `/app/*`,
       '*': `${this.APP_BASE}node_modules/*`
     },
     packages: {
@@ -134,6 +135,7 @@ export class SeedConfig {
 
   SYSTEM_BUILDER_CONFIG = {
     defaultJSExtensions: true,
+    packageConfigPaths: [join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json')],
     paths: {
       [`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
       '*': 'node_modules/*'
