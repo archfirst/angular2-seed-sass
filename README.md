@@ -14,7 +14,7 @@ It is something similar to the Angular Quick Start but does the entire build wit
 - Development server with Livereload.
 - Following the [best practices for your application’s structure](https://github.com/mgechev/angular2-style-guide).
 - Manager of your type definitions using [typings](https://github.com/typings/typings).
-- Has autoprefixer and css-lint support.
+- Has autoprefixer and sass-lint support.
 - Basic Service Worker, which implements "Cache then network strategy".
 - Sass-enabled styling.
 
@@ -26,12 +26,6 @@ You must have `ts-node` installed as global. If you don't, use:
 
 ```bash
 npm install -g ts-node
-```
-
-You must also have Ruby and [scss-lint](https://github.com/brigade/scss-lint) installed. If you are running on MacOS, to install `scss-lint` you need to use `sudo` and a folder that you can write to. For example:
-
-```bash
-sudo gem install -n /usr/local/bin scss_lint
 ```
 
 In order to start using seed:
