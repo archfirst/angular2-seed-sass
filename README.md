@@ -1,6 +1,6 @@
 [![Project Status: Unsupported - The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](http://www.repostatus.org/badges/latest/unsupported.svg)](http://www.repostatus.org/#unsupported)
 
-*Please note that this repository is no longer supported. I have personally switched to [angular-cli](https://github.com/angular/angular-cli). While it is still in beta (as of this writing), the tool has the offcial support from the Angular team and has the best minds working on it. I would like to thank the angular-cli team for all their efforts.*
+*Please note that this repository is no longer supported. I have personally switched to [angular-cli](https://github.com/angular/angular-cli). While it is still in beta (as of this writing), the tool has the official support from the Angular team and has the best minds working on it. I would like to thank the angular-cli team for all their efforts.*
 
 # Introduction
 
